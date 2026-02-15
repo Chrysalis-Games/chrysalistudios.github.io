@@ -2,10 +2,11 @@
 
 :root {
     --bg-color: #101010;
-    --primary-color: #ffffff;
-    --secondary-color: #a0a0a0;
-    --accent-color: #90EE90; /* Soft Green */
-    --container-bg: #202020;
+    --primary-color: #65d6ff;
+    --secondary-color: #95ffdf;
+    --accent-color: #90EE90;
+    --footer-color: #969696;
+    --container-bg: #404040;
 }
 
 * {
@@ -18,57 +19,50 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
     color: var(--primary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    padding-top: 80px; /* Add padding to prevent content from being hidden by the navbar */
+    margin: 0; /* Ensure no default body margin */
+    display: block; /* Override default flex from previous iterations */
+    margin-bottom: 60px; /* Space for the fixed footer */
 }
 
 body.fade-in {
     opacity: 1;
 }
 
-.container {
-    background-color: var(--container-bg);
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 600px;
-    margin: 2rem;
-}
-
 h1 {
     font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
     color: var(--accent-color);
+    top: 0;
+    text-align: center;
 }
 
 .navbar-logo {
-    width: 40px; /* Smaller size for navbar */
+    width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-right: 1.5rem; /* Space between logo and nav links */
+    margin-right: 1.5rem;
     border: 2px solid var(--accent-color);
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    flex-shrink: 0;
 }
 
 h2 {
-    font-weight: 400;
-    font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 2rem;
     margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
+    margin-left: 30px
 }
 
 p {
     color: var(--secondary-color);
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    margin-left: 30px
+
 }
 
 a {
@@ -96,10 +90,10 @@ a:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     padding: 1rem 0;
-    display: flex; /* Make navbar a flex container */
-    justify-content: space-between; /* Space between nav and social links */
-    align-items: center; /* Align items vertically */
-    padding: 1rem 2rem; /* Add horizontal padding to the navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
 }
 
 .navbar ul {
@@ -151,5 +145,73 @@ a:hover {
 
 .social-links a:hover {
     color: var(--accent-color);
-    background-color: transparent; /* Override button-like hover */
+    background-color: transparent;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: var(--container-bg);
+    color: var(--footer-color);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Motto */
+.motto {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: calc(100vh - 80px); /* Full viewport height minus navbar height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding-top: 80px; /* Push content below the fixed navbar */
+}
+
+.main-heading-area {
+    text-align: center; /* Center the text content */
+    max-width: 800px; /* Limit width for readability */
+    padding: 1rem;
+}
+
+/* Keeping the icon logo as a normal <a> tag */
+.icon-top {
+    color: inherit; /* Ensure icon color is inherited, not accent-color */
+    text-decoration: none; /* Remove underline */
+    font-weight: normal; /* Reset bold font weight */
+    border: none; /* Remove any borders */
+    padding: 0; /* Remove any padding */
+    background-color: transparent; /* Ensure no background color */
+    border-radius: 0; /* Remove border-radius */
+    transition: none; /* Remove transition effects */
+    display: inline-block; /* Treat it as a block element for sizing if needed, but allow inline flow */
+}
+
+.navbar > a {
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    background-color: transparent; /* Ensure no background */
+    color: inherit; /* Inherit color, though not relevant for image */
+    font-weight: normal; /* Reset font weight */
+    text-decoration: none; /* Remove underline */
+    transition: none; /* Remove transition effects */
+}
+
+.navbar > a:hover {
+    background-color: transparent; /* No background change on hover */
+    color: inherit; /* Keep inherited color */
+    border: none; /* No border on hover */
+    padding: 0; /* No padding on hover */
+    text-decoration: none; /* No text decoration on hover */
+    font-weight: normal; /* Normal font weight on hover */
 }
